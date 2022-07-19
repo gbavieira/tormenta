@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+{% load widget_tweaks %}
+<!-- Whole Ameaça section -->
+<section class="index">
+    <div class="container">
+        <!-- section title -->
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="title text-center">
+                    <h2>Gerador de Ameaças T20</h2>
+                </div>
+            </div>
+        </div>
+        <!-- section title -->
+        <!-- Main text start -->
+        <div class="row">
+            <div class="col-md-4 text-center d-none d-md-block">
+                <img loading="lazy" src="{% static 'images/monster.png' %}" class="img-fluid inline-block" alt="">
+            </div>
+            <div class="col-md-8">
+                <div class="row text-center">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="item-a">
+                            <p>Seguindo as regras lançadas pela Jambô Editora na revista Dragão Brasil edição nº180,
+                                crie sua ameaça de uma maneira rápida e simples com todos os dados compilados em um único lugar.
+                            </p>
+                            <a href="{% url 'criar-ameaca' %}" type="button" class="btn btn-danger">Criar Ameaça</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="item-b">
+                            <p>Se você está sem ideias e quer utilizar as regras da Dragão Brasil edição nº180 para criar uma criatura completamente aleatória,
+                                basta escolher apenas o ND e clicar no botão abaixo.
+                            </p>
+                            <form action="{% url 'index' %}" method="post">
+                                {% csrf_token %}
+                                <div class="input-group">
+                                    <div class="col-sm-12">
+                                        ND: {{form.nd|add_class:'form-control-plaintext'}}
+                                    </div>
+                                </div>
+                                <a href="{% url 'criar-ameaca-aleatoria' %}" type="button" class="btn btn-danger">Criar Ameaça Aleatória</a>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}  

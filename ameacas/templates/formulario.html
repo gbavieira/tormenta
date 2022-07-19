@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load widget_tweaks %}
+
+<div class="bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <div class="margin margin--w780">
+        <div class="card card-3">
+            <div class="card-heading"></div>
+            <div class="card-body">
+                <h2 class="title-ameaca">Parâmetros da Ameaça</h2>
+                <form action="{% url 'ameaca' %}" class='form' method="POST">
+                    {% csrf_token %}
+                    {% for field in form.visible_fields %}
+                    <div class="form-group">
+                        {{field|add_class:'form-control'}}
+                        <div class="select-dropdown"></div>
+                    </div>
+                    {% for error in field.errors %}
+                    <section class="alert alert-danger" role="alert">
+                        {{ field.errors }}
+                    </section>
+                    {% endfor %}
+                    {% endfor %}
+                    <input type="submit" value="Gerar Ameaça" class='btn btn-success' style="margin-left: 110px;">
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

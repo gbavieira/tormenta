@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<!-- Stats Section -->
+<section class="stats-wrapper section-sm">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-xl-6 col-lg-8 text-center">
+				<div class="title">
+					<h2>Dados de sua Ameaça</h2>
+					<p>Os dados foram calculados levando-se em consideração a informação passada na tela anterior.</p>
+				</div>
+			</div>
+		</div>
+        <div class="row">
+            <!-- first stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-grid-outline"></i>
+                    <div>
+                        <div class="stats">{{nd}}</div>
+                    </div>
+                    <h3>ND</h3>
+                </div>
+            </div>
+            <!-- end first stat -->
+            <!-- second stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-grid-outline"></i>
+                    <div>
+                        <div class="stats">{{bonus_ataque}}</div>
+                    </div>
+                    <h3>Bônus de Ataque</h3>
+                </div>
+            </div>
+            <!-- end second stat -->
+            <!-- third stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-grid-outline"></i>
+                    <div>
+                        <div class="stats">{{dano_medio}}</div>
+                    </div>
+                    <h3>Dano Médio</h3>
+                </div>
+            </div>
+            <!-- end third stat -->
+            <!-- fourth stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-grid-outline"></i>
+                    <div>
+                        <div class="stats">{{defesa}}</div>
+                    </div>
+                    <h3>Defesa</h3>
+                </div>
+            </div>
+            <!-- end fourth stat -->
+            <!-- fifth stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-grid-outline"></i>
+                    <div>
+                        <div class="stats">{{resis_forte}}</div>
+                    </div>
+                    <h3>Resistência Forte</h3>
+                </div>
+            </div>
+            <!-- end fifth stat -->
+            <!-- sixth stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-grid-outline"></i>
+                    <div>
+                        <div class="stats">{{resis_media}}</div>
+                    </div>
+                    <h3>Resistência Média</h3>
+                </div>
+            </div>
+            <!-- end sixth stat -->
+            <!-- seventh stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-grid-outline"></i>
+                    <div>
+                        <div class="stats">{{resis_fraca}}</div>
+                    </div>
+                    <h3>Resistência Fraca</h3>
+                </div>
+            </div>
+            <!-- end seventh stat -->
+            <!-- eight stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-color-wand-outline"></i>
+                    <div>
+                        <div class="stats">{{cd}}</div>
+                    </div>
+                    <h3>Efeito Padrão (CD)</h3>
+                </div>
+            </div>
+            <!-- end eight stat -->
+            <!-- ningth stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-color-wand-outline"></i>
+                    <div>
+                        <div class="stats">{{pv}}</div>
+                    </div>
+                    <h3>PV</h3>
+                </div>
+            </div>
+            <!-- end ningth stat -->
+            <!-- tenth stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-color-wand-outline"></i>
+                    <div>
+                        <div class="stats">{{tamanho}}</div>
+                    </div>
+                    <h3>Tamanho</h3>
+                </div>
+            </div>
+            <!-- end tenth stat -->
+            <!-- eleventh stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-color-wand-outline"></i>
+                    <div>
+                        <div class="stats">{{cd}}</div>
+                    </div>
+                    {% if form.quantidade_ataques.value == '1' %}
+                    <h3>{{form.quantidade_ataques.value}} Ataque: {{form.quantidade_dados.value}}{{form.dado.value}}+{{modificador}}</h3>
+                    {% else %}
+                    <h3>{{form.quantidade_ataques.value}} Ataques: {{form.quantidade_dados.value}}{{form.dado.value}}+{{modificador}}</h3>
+                    {% endif %}
+                </div>
+            </div>
+            
+            <!-- end eleventh stat -->
+            <!-- twelveth stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-color-wand-outline"></i>
+                    <div>
+                        <div class="stats">{{andar}}</div>
+                    </div>
+                    <h3>Deslocamento</h3>
+                </div>
+            </div>
+            <!-- end twelveth stat -->
+            <!-- thriteenth stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-color-wand-outline"></i>
+                    <div>
+                        <div class="stats">{{espaco_ocupado}}</div>
+                    </div>
+                    <h3>Espaço Ocupado/Alcance Natural:</h3>
+                </div>
+            </div>
+            <!-- end thriteenth stat -->
+            <!-- fourteenth stat -->
+            <div class="col-md-3 col-sm-6 col-xs-6 text-center ">
+                <div class="stats-item">
+                    <i class="tf-ion-ios-color-wand-outline"></i>
+                    <div>
+                        <div class="stats">{{mod_manobra_furtividade}}</div>
+                    </div>
+                    <h3>Modificador de Manobra/Furtividade:</h3>
+                </div>
+            </div>
+            <!-- end fourteenth stat -->
+        </div> <!-- end row -->
+    </div> <!-- end container -->
+</section> <!-- end section -->
+
+{% endblock %}

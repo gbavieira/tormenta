@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<!-- Stats Section -->
+<div class="bg-gra-01 p-t-180 p-b-100 font-poppins">
+    <div class="margin margin--w780">
+        <div class="card card-3">
+            <div class="ameaca">
+                <h2 class="title-ameaca">Parâmetros da Ameaça</h2>
+                <div class="titulo">
+                    <h3 class="nome">Nome da Ameaça</h3><h3 class="nd">ND {{nd}}</h3><br>
+                </div> 
+                <div class="tamanho">
+                    <h5>{{attr.model}}, {{tam}}, {{attr.conc}} </h5>
+                </div>
+                <div class="stats">
+                    <p class="stats-p">
+                        Iniciativa <span style="color: white;">+{{peri.inic}},</span> 
+                        Percepção <span style="color: white;">+{{peri.perc}},</span> 
+                        {% if sentidos != "" %}
+                            {{sentidos}}
+                        {% else %}
+                        {% endif %}
+                        <br>
+                        Defesa <span style="color: white;">{{defesa}},</span>
+                        Fortitude <span style="color: white;">
+                            {% if peri.fort >= 0 %}
+                            +{{peri.fort}}, 
+                            {% else %}
+                            {{peri.fort}},
+                            {% endif %}</span>
+                        Reflexos <span style="color: white;">
+                            {% if peri.refl >= 0 %}
+                            +{{peri.refl}},
+                            {% else %}
+                            {{peri.refl}},
+                            {% endif %}</span>
+                        Vontade <span style="color: white;">
+                            {% if peri.vont >= 0 %}
+                            +{{peri.vont}},
+                            {% else %}
+                            {{peri.vont}},
+                            {% endif %}</span>
+                    </p>
+                    <p>Pontos de Vida <span style="color: white;">{{pv}}</span></p>
+                    <p class="creature">Deslocamento <span style="color: white;">{{andar}}m</span></p>
+                    <p class="">Pontos de Mana <span style="color: white;">{{pm}}</span></p>
+                    <p>Corpo a Corpo <span style="color: white;">{{ataque}}({{dano}})</span></p>
+                    <p class="total-ataque">
+                        {% for poder in criatura %}
+                            <span style="color: red;">{{poder}}</span> {{descricao_poder}} <br>
+                        {% endfor %}
+                    </p>
+                    <p class="atributes">
+                        For <span style="color: white;">{{attr.forca}},</span> 
+                        Des <span style="color: white;">{{attr.des}},</span> 
+                        Con <span style="color: white;">{{attr.con}},</span> 
+                        Int <span style="color: white;">{{attr.intel}},</span> 
+                        Sab <span style="color: white;">{{attr.sab}},</span> 
+                        Car <span style="color: white;">{{attr.car}}</span> 
+                    </p>
+                    <p>
+                        {% if attr.conc == 'Arcano' %}
+                            Misticismo <span style="color: white;">+{{peri.mist}}</span></p>
+                        {% endif %}
+                    <p>Tesouro <span style="color: white;">{{tesouro}}</span></p>
+                </div>
+                <a href="{% url 'criar-ameaca-aleatoria' %}" type="button" class="btn btn-danger" style="margin-left: 210px; margin-top: 50px;">Criar Nova Ameaça</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

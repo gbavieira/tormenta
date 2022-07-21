@@ -18,6 +18,9 @@ class AmeacasForms(forms.Form):
     deslocamento_tipo = forms.ChoiceField(choices=DESLOCAMENTO_TIPO_CHOICES, required=True)
     delocamento_velocidade = forms.ChoiceField(choices=DESLOCAMENTO_VELOCIDADE_CHOICES, required=True)
     tamanho = forms.ChoiceField(choices=TAMANHO_CHOICES, required=True)
+
+class AmeacasAleatoriasForm(forms.Form):
+    nd = forms.ChoiceField(choices=ND_CHOICES, required=True)
     
 
 

@@ -34,14 +34,14 @@
                             <p>Se você está sem ideias e quer utilizar as regras da Dragão Brasil edição nº180 para criar uma criatura completamente aleatória,
                                 basta escolher apenas o ND e clicar no botão abaixo.
                             </p>
-                            <form action="{% url 'index' %}" method="post">
+                            <form action="{% url 'criar-ameaca-aleatoria' %}" method="post">
                                 {% csrf_token %}
                                 <div class="input-group">
                                     <div class="col-sm-12">
-                                        ND: {{form.nd|add_class:'form-control-plaintext'}}
+                                        ND: {{form_aleatoria.nd|add_class:'form-control-plaintext'}}
                                     </div>
                                 </div>
-                                <a href="{% url 'criar-ameaca-aleatoria' %}" type="button" class="btn btn-danger">Criar Ameaça Aleatória</a>
+                                <input type="submit" class="btn btn-danger" value="Gerar Ameaça Aleatória">
                             </form>
                         </div>
                     </div>

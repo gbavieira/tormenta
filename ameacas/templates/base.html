@@ -1,5 +1,4 @@
 {% load static %}
-{% load livereload_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +12,7 @@
     <link rel="stylesheet" href="{% static 'plugins/bootstrap/bootstrap.min.css'%}">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{% static 'css/style.css'%}">
-    {% livereload_script %}
+
 </head>
 <body id="body">
     {% block content %} {% endblock %}

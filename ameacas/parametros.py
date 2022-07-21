@@ -1,5 +1,4 @@
 from .models import Parametros
-import random
 import math
 
 def dado(request):

@@ -1,5 +1,6 @@
 import random
 import math
+from .parametros import parametros,dado
 
 
 tamanho_lista = ['Minúsculo','Pequeno','Médio','Grande','Enorme','Colossal']
@@ -209,7 +210,15 @@ def atributos(request):
                 sab = random.choice(ineficaz)
                 car = random.choice(ineficaz)
                 intel = random.choice(ineficaz)
-            
+    
+
+    if model == 'Construto' or model == 'Morto-Vivo':
+        habilidades = "imunidade a doenças, fadiga, sangramento, sono e veneno; Visão no escuro"
+    elif model == 'Espírito':
+        habilidades = "visão no escuro"
+    else:
+        habilidades = ""
+        
     return {
         'forca':forca,
         'des':des,
@@ -219,6 +228,7 @@ def atributos(request):
         'car':car,
         'model':model,
         'conc':conc,
+        'habilidades':habilidades,
     }
 
 def per(request):
@@ -242,3 +252,66 @@ def mana(request):
 def deslocamento_aleatorio(request):
     deslocamento = random.choice([6,9,12])
     return deslocamento
+
+def ataque_calculo(request):
+    nd = nd_form(request)
+    ameaca = parametros(request).get()
+    bonus_ataque = ameaca.get('bonus_ataque')
+    dados_nd_baixo = ['d4','d6','d8']
+    dados_nd_medio = ['d6','d8','d10']
+    dados_nd_alto = ['d6','d8','d10','d12']
+    if nd == 0.25 or nd == 0.5 or nd == 1:
+        quantidade_ataques = 1
+        quantidade_dados = random.choice([1,2])
+        dados = random.choice(dados_nd_baixo)
+    
+    elif nd in list(range(2,7)):
+        quantidade_ataques = 2
+        quantidade_dados = random.choice([2,3,4])
+        dados = random.choice(dados_nd_medio)
+
+    elif nd in list(range(7,13)):
+        quantidade_ataques = 3
+        quantidade_dados = random.choice([4,5,6])
+        dados = random.choice(dados_nd_alto)
+    
+    elif nd in list(range(13,17)):
+        quantidade_ataques = 4
+        quantidade_dados = random.choice([6,7,8])
+        dados = random.choice(dados_nd_alto)
+    
+    elif nd in list(range(17,21)):
+        quantidade_ataques = 5
+        quantidade_dados = random.choice([8,9,10,12])
+        dados = random.choice(dados_nd_alto)
+
+    dados_str = dados
+
+    if dados == 'd4':
+        dados = list(range(1,5))
+    elif dados == 'd6':
+        dados = list(range(1,7))
+    elif dados == 'd8':
+        dados = list(range(1,9))
+    elif dados == 'd10':
+        dados = list(range(1,11))
+    elif dados == 'd12':
+        dados = list(range(1,13))
+    else:
+        dados = list(range(1,101))
+
+    dano_medio = ameaca.get('dano_medio')
+    minimo = int(min(dados))
+    maximo = int(max(dados))
+    media = math.floor((maximo+minimo)/2)*quantidade_dados
+    modificador = math.floor((dano_medio - media)/quantidade_ataques)
+    dano = str(quantidade_dados) + dados_str +"+"+str(modificador)
+
+    return {
+        'quantidade_ataques': quantidade_ataques,
+        'bonus_ataque':bonus_ataque,
+        'dano':dano,
+    }
+
+def poderes(request):
+    pass

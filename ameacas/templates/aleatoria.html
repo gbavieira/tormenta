@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 
-
+{% include 'partials/_header.html' %}
 <!-- Stats Section -->
 <div class="bg-gra-01 p-t-180 p-b-100 font-poppins">
     <div class="margin margin--w780">
@@ -17,9 +17,9 @@
                 <div class="stats">
                     <p class="stats-p">
                         Iniciativa <span style="color: white;">+{{peri.inic}},</span> 
-                        Percepção <span style="color: white;">+{{peri.perc}},</span> 
-                        {% if sentidos != "" %}
-                            {{sentidos}}
+                        Percepção <span style="color: white;">+{{peri.perc}}</span> 
+                        {% if attr.habilidades != "" %}
+                        <span style="color: white;">, {{attr.habilidades}}</span> 
                         {% else %}
                         {% endif %}
                         <br>
@@ -46,7 +46,12 @@
                     <p>Pontos de Vida <span style="color: white;">{{pv}}</span></p>
                     <p class="creature">Deslocamento <span style="color: white;">{{andar}}m</span></p>
                     <p class="">Pontos de Mana <span style="color: white;">{{pm}}</span></p>
-                    <p>Corpo a Corpo <span style="color: white;">{{ataque}}({{dano}})</span></p>
+                    <p>Corpo a Corpo <span style="color: white;">{{ataque.quantidade_ataques}} 
+                        {% if ataque.quantidade_ataques > 1 %} Ataques
+                        {% else %}
+                         Ataque
+                        {% endif %}
+                        +{{ataque.bonus_ataque}} ({{ataque.dano}})</span></p>
                     <p class="total-ataque">
                         {% for poder in criatura %}
                             <span style="color: red;">{{poder}}</span> {{descricao_poder}} <br>
@@ -72,4 +77,5 @@
     </div>
 </div>
 
+{% include 'partials/_footer.html' %}
 {% endblock %}

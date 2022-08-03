@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 {% load widget_tweaks %}
-
+{% include 'partials/_header.html' %}
 <div class="bg-gra-01 p-t-180 p-b-100 font-poppins">
     <div class="margin margin--w780">
         <div class="card card-3">
@@ -27,5 +27,5 @@
         </div>
     </div>
 </div>
-
+{% include 'partials/_footer.html' %}
 {% endblock %}

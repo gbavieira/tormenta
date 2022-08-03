@@ -2,6 +2,7 @@
 {% block content %}
 {% load static %}
 {% load widget_tweaks %}
+{% include 'partials/_header.html' %}
 <!-- Whole Ameaça section -->
 <section class="index">
     <div class="container">
@@ -50,5 +51,34 @@
         </div>
     </div>
 </section>
+
+<footer id="footer-index">
+    <div class="container">
+        <div class="row content-justify-between">
+            <div class="col-md-8 col-12 text-center text-lg-left text-md-left">
+                <p class="copyright">
+                    <a class="navbar-brand" href="https://github.com/gbavieira">
+                        <img src="{% static 'images/logo.png' %}" alt="logo">
+                    </a> 
+                </p>
+            </div>
+            <div class="col-md-4 col-12">
+                <!-- Social Media -->
+                <ul class="social text-center text-md-right text-lg-right">
+                    <li>
+                        <a href="https://www.linkedin.com/in/gabriel-vieira-b1224843/" class="Linkedin">
+                            <i class="ion-social-linkedin"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/gbavieira" class="Github">
+                            <i class="ion-social-github"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>   
+        </div>
+    </div>
+</footer>
 
 {% endblock %}  

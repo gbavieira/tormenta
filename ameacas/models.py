@@ -11,3 +11,7 @@ class Parametros(models.Model):
     resis_fraca = models.IntegerField(_("resis_fraca"))
     pv = models.IntegerField(_("pv"))
     cd = models.IntegerField(_("cd"))
+
+class Poderes(models.Model):
+    nome_poder = models.CharField(_("nome_poder"),max_length=100,)
+

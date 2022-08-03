@@ -74,6 +74,7 @@ def criar_ameaca_aleatoria(request):
     cd = ameaca.get('cd')
     pm = mana(request)
     andar = deslocamento_aleatorio(request)
+    ataque = ataque_calculo(request)
 
     # Condições de resistências para cada conceito
     if attr['conc'] == 'Combatente':
@@ -123,5 +124,6 @@ def criar_ameaca_aleatoria(request):
         'cd':cd,
         'pm':pm,
         'andar':andar,
+        'ataque':ataque,
     }
     return render (request, 'aleatoria.html', criatura)
